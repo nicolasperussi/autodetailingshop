@@ -1,30 +1,14 @@
 package org.nicolasperussi;
 
-import jakarta.persistence.EntityManager;
-import jakarta.persistence.EntityManagerFactory;
-import jakarta.persistence.Persistence;
-import org.hibernate.Session;
-import org.hibernate.SessionFactory;
-import org.hibernate.cfg.Configuration;
 import org.nicolasperussi.domain.Customer;
+import org.nicolasperussi.domain.Vehicle;
+import org.nicolasperussi.service.CustomerService;
+import org.nicolasperussi.service.VehicleService;
 
 public class Main {
     public static void main(String[] args) {
-        EntityManagerFactory emf = Persistence.createEntityManagerFactory("autoDetailingPU");
-        EntityManager em = emf.createEntityManager();
+        CustomerService customerService = new CustomerService();
 
-        // Begin a transaction
-        em.getTransaction().begin();
-
-        // Example: Create a new customer
-        Customer customer = new Customer();
-        customer.setFirstName("John");
-        customer.setLastName("Doe");
-        em.persist(customer);
-
-        em.getTransaction().commit();
-        em.close();
-
-        emf.close();
+        customerService.createCustomer(new Customer("   NicoLAu    ", "PeRussi    ", "999888777"));
     }
 }

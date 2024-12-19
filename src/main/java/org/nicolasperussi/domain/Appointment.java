@@ -25,9 +25,83 @@ public class Appointment {
 
     @ManyToMany
     @JoinTable(
-            name = "appointment_services",
+            name = "appointment_tasks",
             joinColumns = @JoinColumn(name = "appointment_id"),
-            inverseJoinColumns = @JoinColumn(name = "service_id")
+            inverseJoinColumns = @JoinColumn(name = "task_id")
     )
-    private List<Service> services;
+    private List<Task> tasks;
+
+    public Appointment() {
+    }
+
+    public Appointment(LocalDateTime dateTime, Integer status, Double totalCost, Vehicle vehicle, Customer customer, List<Task> tasks) {
+        this.dateTime = dateTime;
+        this.status = status;
+        this.totalCost = totalCost;
+        this.vehicle = vehicle;
+        this.customer = customer;
+        for (Task task : tasks) {
+            this.addTask(task);
+        }
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public LocalDateTime getDateTime() {
+        return dateTime;
+    }
+
+    public void setDateTime(LocalDateTime dateTime) {
+        this.dateTime = dateTime;
+    }
+
+    public Integer getStatus() {
+        return status;
+    }
+
+    public void setStatus(Integer status) {
+        this.status = status;
+    }
+
+    public Double getTotalCost() {
+        return totalCost;
+    }
+
+    public void setTotalCost(Double totalCost) {
+        this.totalCost = totalCost;
+    }
+
+    public Vehicle getVehicle() {
+        return vehicle;
+    }
+
+    public void setVehicle(Vehicle vehicle) {
+        this.vehicle = vehicle;
+    }
+
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
+    }
+
+    public List<Task> getTasks() {
+        return tasks;
+    }
+
+    public void addTask(Task task) {
+        this.tasks.add(task);
+    }
+
+    public void removeTask(Task task) {
+        this.tasks.remove(task);
+    }
 }

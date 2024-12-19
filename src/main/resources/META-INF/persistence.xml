@@ -10,10 +10,10 @@
 
         <properties>
             <!-- JDBC Database connection settings -->
-            <property name="javax.persistence.jdbc.url" value="jdbc:sqlite:autodetailshop.db"/>
-            <property name="javax.persistence.jdbc.driver" value="org.sqlite.JDBC"/>
-            <property name="javax.persistence.jdbc.user" value=""/>
-            <property name="javax.persistence.jdbc.password" value=""/>
+            <property name="jakarta.persistence.jdbc.url" value="jdbc:sqlite:autodetailshop.db"/>
+            <property name="jakarta.persistence.jdbc.driver" value="org.sqlite.JDBC"/>
+            <property name="jakarta.persistence.jdbc.user" value=""/>
+            <property name="jakarta.persistence.jdbc.password" value=""/>
 
             <!-- Specify Dialect -->
             <property name="hibernate.dialect" value="org.hibernate.community.dialect.SQLiteDialect"/>
